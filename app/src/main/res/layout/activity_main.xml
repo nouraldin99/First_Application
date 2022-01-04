@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activities.MainActivity"
+    android:background="@drawable/background_main">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            app:liftOnScroll="true">
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_gravity="start|center"
+                        android:padding="20dp"
+                        android:background="@drawable/profile_background"
+                        android:src="@drawable/ic_profile_icon" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="start|center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="60"
+                            android:textColor="@color/white"
+                            android:drawableRight="@drawable/cap"
+                            android:textSize="20sp"
+                            android:drawablePadding="10dp"
+                            android:gravity="center"
+                            android:layout_gravity="end"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:drawableRight="@drawable/ic_doing_good_icon"
+                            android:drawableTint="@color/white"
+                            android:textSize="20sp"
+                            android:drawablePadding="10dp"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:layout_gravity="end"
+                            />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+        <View
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"/>
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_gravity="end|center"
+                        android:background="@drawable/org_logo" />
+
+                </LinearLayout>
+
+
+
+            </androidx.appcompat.widget.Toolbar>
+
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="120dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottom_app_bar"
+        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:backgroundTint="#000"
+        app:fabCradleMargin="10dp"
+        app:fabCradleRoundedCornerRadius="90dp"
+        app:fabCradleVerticalOffset="5dp"
+        app:title="@string/app_name"
+        >
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="16dp"
+            app:labelVisibilityMode="labeled"
+            app:itemIconTint="@color/checked"
+            app:itemTextColor="@color/checked"
+            app:itemTextAppearanceActive="@style/CustomBottomTabText"
+            android:clickable="true"
+            android:background="@android:color/transparent"
+            app:menu="@menu/main_menu" />
+
+
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/cta_bottle"
+        app:tint="@null"
+        android:padding="0dp"
+        android:scaleType="center"
+        app:maxImageSize="56dp"
+        app:backgroundTint="@android:color/transparent"
+        app:layout_anchor="@id/bottom_app_bar" />
+
+
+<!--    app:layout_anchorGravity="bottom||center"-->
+
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
