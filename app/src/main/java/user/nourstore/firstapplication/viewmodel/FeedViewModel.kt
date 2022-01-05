@@ -3,8 +3,8 @@ package user.nourstore.firstapplication.viewmodel
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Log
+import user.nourstore.firstapplication.R
 import user.nourstore.firstapplication.model.PhotoModel
-import user.nourstore.firstapplication.view.fragments.FeedFragment
 import java.net.URL
 import kotlin.concurrent.thread
 
@@ -16,18 +16,22 @@ class FeedViewModel(val listener : PhotosInterface) {
 
     }
 
+
+
     fun loadPhoto(){
         thread(start = true) {
             val bitmap = downloadBitmap(IMAGE_URL)
 
             val models =listOf(
-                PhotoModel("נותן מתנה", " בואו נראה אם תצליח", photoImg = bitmap),
-                PhotoModel("נותן מתנה", " בואו נראה אם תצליח", photoImg = bitmap)
-
+                PhotoModel(R.string.title, R.string.sub_title, photoImg = bitmap),
+                PhotoModel(R.string.title, R.string.sub_title, photoImg = bitmap)
             )
             listener.onPhotosLoaded(models)
         }
     }
+
+
+
     private fun downloadBitmap(imageUrl: String): Bitmap? {
 
         return try {

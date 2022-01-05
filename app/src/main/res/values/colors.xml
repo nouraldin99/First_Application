@@ -13,8 +13,11 @@
     <color name="custom_color_secondary">#706E6E</color>
     <color name="custom_color_secondary_light">#FFFFFFFF</color>
     <color name="custom_color_background">#DD575959</color>
-    <color name="text_primary"></color>
-    <color name="text_second"></color>
+
+    <color name="red">#f40009</color>
+    <color name="light_gray">#b4b4b4</color>
+    <color name="dark_gray">#2c2c2c</color>
+
 
 
 

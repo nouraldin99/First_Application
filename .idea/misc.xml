@@ -12,15 +12,20 @@
         <entry key="app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.2037037037037037" />
         <entry key="app/src/main/res/drawable/ic_baseline_star_24.xml" value="0.1175925925925926" />
         <entry key="app/src/main/res/drawable/ic_doing_good_icon.xml" value="0.2037037037037037" />
+        <entry key="app/src/main/res/drawable/ic_feed_icon.xml" value="0.2564102564102564" />
+        <entry key="app/src/main/res/drawable/ic_group_280.xml" value="0.2564102564102564" />
+        <entry key="app/src/main/res/drawable/ic_group_287.xml" value="0.2564102564102564" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/ic_profile_icon.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/image_cycle.xml" value="0.2518518518518518" />
         <entry key="app/src/main/res/drawable/img.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/profile_background.xml" value="0.2037037037037037" />
         <entry key="app/src/main/res/drawable/view_pager_background.xml" value="0.17592592592592593" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2923076923076923" />
-        <entry key="app/src/main/res/layout/fragment_doing_good.xml" value="0.4244791666666667" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.29971100293624414" />
+        <entry key="app/src/main/res/layout/fragment_doing_good.xml" value="0.36014508576023174" />
         <entry key="app/src/main/res/layout/fragment_feed.xml" value="0.24537037037037038" />
+        <entry key="app/src/main/res/layout/fragment_my_prezi.xml" value="0.24427083333333333" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.24427083333333333" />
         <entry key="app/src/main/res/layout/view_pager_container.xml" value="0.2694805194805195" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.34010416666666665" />
       </map>
