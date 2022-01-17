@@ -7,11 +7,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.CompositePageTransformer
+import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import user.nourstore.firstapplication.R
 import user.nourstore.firstapplication.model.PhotoModel
 import user.nourstore.firstapplication.view.fragments.adapters.PhotoAdapter
 import user.nourstore.firstapplication.viewmodel.FeedViewModel
+import kotlin.math.abs
 
 class FeedFragment : Fragment(), FeedViewModel.PhotosInterface {
 
@@ -40,14 +44,39 @@ class FeedFragment : Fragment(), FeedViewModel.PhotosInterface {
 
     }
 
+
+
     override fun onPhotosLoaded(list: List<PhotoModel>) {
         val uiHandler = Handler(Looper.getMainLooper())
         uiHandler.post {
         photoAdapter = PhotoAdapter(list)
         val slidingViewPager2 = view?.findViewById<ViewPager2>(R.id.view_pager_photo)
         slidingViewPager2?.adapter = photoAdapter
+            slidingViewPager2?.clipToPadding = false
+            slidingViewPager2?.clipChildren = false
+            slidingViewPager2?.offscreenPageLimit = 3
+            slidingViewPager2?.getChildAt(0)?.overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+
+             var compositePageTransformer : CompositePageTransformer = CompositePageTransformer()
+            compositePageTransformer.addTransformer(MarginPageTransformer(40))
+             compositePageTransformer.addTransformer(object: ViewPager2.PageTransformer{
+                 override fun transformPage(page: View, position: Float) {
+                     var r:Float = 1 - abs(position)
+                     page.scaleY = .85f + r *0.15f
+
+                 }
+             })
+
+            slidingViewPager2?.setPageTransformer(compositePageTransformer)
+
+
+
         }
     }
 
 
 }
+
+
+
+
