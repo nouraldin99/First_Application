@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:text="Doing Good "
         android:gravity="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="20sp"/>
 </FrameLayout>

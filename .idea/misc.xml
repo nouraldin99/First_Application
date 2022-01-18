@@ -21,7 +21,7 @@
         <entry key="app/src/main/res/drawable/img.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/profile_background.xml" value="0.2037037037037037" />
         <entry key="app/src/main/res/drawable/view_pager_background.xml" value="0.17592592592592593" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.29971100293624414" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_doing_good.xml" value="0.36014508576023174" />
         <entry key="app/src/main/res/layout/fragment_feed.xml" value="0.24537037037037038" />
         <entry key="app/src/main/res/layout/fragment_my_prezi.xml" value="0.24427083333333333" />
@@ -36,5 +36,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.2694805194805195" />
+      </ProjectState>
+    </option>
   </component>
 </project>

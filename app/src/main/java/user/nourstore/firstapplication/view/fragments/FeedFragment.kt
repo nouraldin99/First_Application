@@ -54,6 +54,7 @@ class FeedFragment : Fragment(), FeedViewModel.PhotosInterface {
     }
 
     private fun setupViewPager() {
+
         val slidingViewPager2 = view?.findViewById<ViewPager2>(R.id.view_pager_photo)
         slidingViewPager2?.adapter = photoAdapter
         slidingViewPager2?.clipToPadding = false

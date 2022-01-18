@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">First Application</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="title">Gives a gift</string>
     <string name="sub_title">Gives a gift</string>
 </resources>
