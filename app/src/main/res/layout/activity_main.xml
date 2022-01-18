@@ -127,7 +127,6 @@
                 app:labelVisibilityMode="labeled"
                 app:itemIconTint="@color/checked"
                 app:itemTextColor="@color/checked"
-                android:layout_gravity="bottom|center"
                 app:itemTextAppearanceActive="@style/CustomBottomTabText"
                 android:clickable="true"
                 app:elevation="@null"
