@@ -15,12 +15,14 @@ import user.nourstore.firstapplication.R
 import user.nourstore.firstapplication.model.PhotoModel
 import user.nourstore.firstapplication.view.fragments.adapters.PhotoAdapter
 import user.nourstore.firstapplication.viewmodel.FeedViewModel
+import kotlin.concurrent.fixedRateTimer
 import kotlin.math.abs
 
 class FeedFragment : Fragment(), FeedViewModel.PhotosInterface {
 
     private val viewModel = FeedViewModel(this)
     private lateinit var photoAdapter: PhotoAdapter
+    private lateinit var slidingViewPager2: ViewPager2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +31,7 @@ class FeedFragment : Fragment(), FeedViewModel.PhotosInterface {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        slidingViewPager2 = view.findViewById(R.id.view_pager_photo)
         viewModel.loadPhoto()
 
 
@@ -44,10 +47,10 @@ class FeedFragment : Fragment(), FeedViewModel.PhotosInterface {
     }
 
 
-    override fun onPhotosLoaded(list: List<PhotoModel>) {
+    override fun onPhotosLoaded(list: MutableList<PhotoModel>) {
         val uiHandler = Handler(Looper.getMainLooper())
         uiHandler.post {
-            photoAdapter = PhotoAdapter(list)
+            photoAdapter = PhotoAdapter(list , slidingViewPager2)
             setupViewPager()
 
         }
@@ -55,30 +58,22 @@ class FeedFragment : Fragment(), FeedViewModel.PhotosInterface {
 
     private fun setupViewPager() {
 
-        val slidingViewPager2 = view?.findViewById<ViewPager2>(R.id.view_pager_photo)
-        slidingViewPager2?.adapter = photoAdapter
-        slidingViewPager2?.clipToPadding = false
-        slidingViewPager2?.clipChildren = false
-        slidingViewPager2?.offscreenPageLimit = 3
-        slidingViewPager2?.getChildAt(0)?.overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+        slidingViewPager2.adapter = photoAdapter
+        slidingViewPager2.clipToPadding = false
+        slidingViewPager2.clipChildren = false
+        slidingViewPager2.offscreenPageLimit = 3
+        slidingViewPager2.getChildAt(0)?.overScrollMode = RecyclerView.OVER_SCROLL_NEVER
 
         val compositePageTransformer: CompositePageTransformer = CompositePageTransformer()
         compositePageTransformer.addTransformer(MarginPageTransformer(40))
-        compositePageTransformer.addTransformer(object : ViewPager2.PageTransformer {
-            override fun transformPage(page: View, position: Float) {
-                val r: Float = 1 - abs(position)
-                page.scaleY = .85f + r * 0.15f
+        compositePageTransformer.addTransformer { page, position ->
+            val r: Float = 1 - abs(position)
+            page.scaleY = .85f + r * 0.15f
+        }
 
-            }
-        })
-
-        slidingViewPager2?.setPageTransformer(compositePageTransformer)
+        slidingViewPager2.setPageTransformer(compositePageTransformer)
 
     }
 
 
 }
-
-
-
-

@@ -3,6 +3,7 @@ package user.nourstore.firstapplication.viewmodel
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Log
+import android.view.View
 import user.nourstore.firstapplication.R
 import user.nourstore.firstapplication.model.PhotoModel
 import java.net.URL
@@ -21,11 +22,11 @@ class FeedViewModel(val listener : PhotosInterface) {
     fun loadPhoto(){
         thread(start = true) {
             val bitmap = downloadBitmap(IMAGE_URL)
+            val models: MutableList<PhotoModel> = ArrayList()
 
-            val models =listOf(
-                PhotoModel(R.string.title, R.string.sub_title, photoImg = bitmap),
-                PhotoModel(R.string.title, R.string.sub_title, photoImg = bitmap)
-            )
+                models.add(PhotoModel(R.string.title, R.string.sub_title, photoImg = bitmap))
+            models.add(PhotoModel(R.string.title, R.string.sub_title, photoImg = bitmap))
+
             listener.onPhotosLoaded(models)
         }
     }
@@ -47,7 +48,7 @@ class FeedViewModel(val listener : PhotosInterface) {
         }
     }
     interface PhotosInterface{
-        fun onPhotosLoaded (list:List<PhotoModel>)
+        fun onPhotosLoaded (list:MutableList<PhotoModel>)
     }
 
 
